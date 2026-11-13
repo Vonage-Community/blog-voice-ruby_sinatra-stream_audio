@@ -63,10 +63,10 @@ Run this from the project folder. It creates the application and saves its priva
 vonage apps create "Stream Audio Demo"
 ```
 
-Add the Voice capability, using the application ID from the previous output. The URLs are placeholders: `vonage tunnel ngrok` points them at your tunnel later.
+Add the Voice capability, using the application ID from the previous output. The URLs are placeholders: `vonage tunnel ngrok` points them at your tunnel later. `--voice-signed-callbacks` makes Vonage sign every webhook so the app can verify it.
 
 ```bash
-vonage apps capabilities update APP_ID voice --voice-answer-url=https://example.com/answer --voice-event-url=https://example.com/event --voice-fallback-url=https://example.com/fallback
+vonage apps capabilities update APP_ID voice --voice-answer-url=https://example.com/answer --voice-event-url=https://example.com/event --voice-fallback-url=https://example.com/fallback --voice-signed-callbacks
 ```
 
 ### 5. Open a tunnel

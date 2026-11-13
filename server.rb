@@ -29,8 +29,16 @@ helpers do
   # Verify it before acting on the request.
   def valid_vonage_signature?(client)
     token = request.env['HTTP_AUTHORIZATION'].to_s.delete_prefix('Bearer ')
-    client.voice.verify_webhook_token(token: token)
-  rescue JWT::DecodeError
+    if token.empty?
+      logger.warn('Webhook has no Authorization header. Are signed webhooks on?')
+      return false
+    end
+    return true if client.voice.verify_webhook_token(token: token)
+
+    logger.warn('Webhook signature does not match VONAGE_SIGNATURE_SECRET')
+    false
+  rescue JWT::DecodeError => e
+    logger.warn("Webhook has no valid signature: #{e.message}")
     false
   end
 end

@@ -20,11 +20,11 @@ This demo uses Ruby, [Sinatra](https://sinatrarb.com/) and the [Vonage Voice API
 ### 1. Install dependencies
 
 ```bash
-git clone https://github.com/Vonage-Community/vonage-ruby-stream-audio-demo.git
+git clone https://github.com/Vonage-Community/blog-voice-ruby_sinatra-stream_audio.git
 ```
 
 ```bash
-cd vonage-ruby-stream-audio-demo
+cd blog-voice-ruby_sinatra-stream_audio
 ```
 
 ```bash

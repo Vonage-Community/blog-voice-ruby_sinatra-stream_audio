@@ -1,0 +1,5 @@
+.env
+*.key
+.bundle/
+vendor/
+.DS_Store
